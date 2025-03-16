@@ -66,6 +66,32 @@ const AllTasks = () => {
         }
     };
 
+    // Tasks that are done
+    const [done, setDone] = useLocalStorageWithExpiry("tasksDone", JSON.stringify([]));
+
+    const handleDone = (index: number) => {
+        try {
+            const parsedData: TaskData[] = JSON.parse(data);  
+            const doneTasks: TaskData[] = JSON.parse(done);  
+    
+            const dataThatIsDone = parsedData[index];
+    
+            if (!dataThatIsDone) return; 
+    
+            const updatedDoneTasks = [...doneTasks, dataThatIsDone]; 
+    
+            setDone(JSON.stringify(updatedDoneTasks));  
+            handleDelete(index);  
+    
+            // Dispatch event to notify TasksDone
+            window.dispatchEvent(new Event("tasksUpdated"));
+        } catch (error) {
+            console.error("Error in handleDone:", error);
+        }
+    };
+    
+
+
     return (
         <div className="p-4 md:p-10 md:px-20 grid md:grid-cols-2 gap-3 md:gap-[5rem] md:h-[90vh] bg-amber-100">
             <div className="">
@@ -81,8 +107,8 @@ const AllTasks = () => {
                         theWholeDataToBeShown.map((ob, idx) => (
                             <div key={idx} className=" px-6 py-5 border-3 my-2 rounded-2xl">
                                 <div className="flex justify-between gap-2 md:items-center">
-                                <h2 className="text-xl font-medium">{ob.Task}</h2>
-                                <p>icon</p>
+                                    <h2 className="text-xl font-medium">{ob.Task}</h2>
+                                    <p>icon</p>
                                 </div>
                                 <div className="flex gap-2">
                                     <h2 className="text-sm">Type: {ob.Type}</h2>
@@ -96,7 +122,7 @@ const AllTasks = () => {
                                         Delete
                                     </button>
                                     <button
-                                        onClick={() => handleDelete(idx)}
+                                        onClick={() => handleDone(idx)}
                                         className="bg-green-500 rounded px-3 py-2 my-2 text-white font-semibold hover:bg-red-400"
                                     >
                                         Done

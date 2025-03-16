@@ -1,3 +1,4 @@
+import { Button } from "@/Components/ui/button"
 
 const Hero = () => {
     return(
@@ -6,6 +7,9 @@ const Hero = () => {
             <div className="flex gap-4 [&>button]:border-2 [&>button]:p-2 [&>button]:rounded-md [&>button]:bg-gray-600 [&>button]:text-white">
             <button className="hover:bg-gray-500">Add a task</button>
             <button className="hover:bg-gray-500">Completed Tasks</button>
+            <Button>
+                csd
+            </Button>
             </div>
         </div>
     )
