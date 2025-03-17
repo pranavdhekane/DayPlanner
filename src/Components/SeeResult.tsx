@@ -7,12 +7,13 @@ const SeeResult = () => {
     const ProgressValue = (completedTasks.length / (tasks.length + completedTasks.length)) * 100;
 
     return(
-        <div className="min-h-[90vh] grid grid-cols-2">
-            <div>
-                <Chart />
+        <div className="h-auto grid grid-cols-1 gap-5  bg-transperent p-5">
+            <div className="bg-gray-700 flex justify-center items-start p-5 flex-col text-white rounded-2xl" >
+                <p>Tasks :</p>
+                <Progress value={ProgressValue} className="h-5"/>
             </div>
-            <div className="bg-gray-700 p-10 flex justify-center items-center">
-                <Progress value={ProgressValue} className="h-10"/>
+            <div className="h-auto">
+                <Chart />
             </div>
         </div>
     )

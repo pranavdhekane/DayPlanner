@@ -1,16 +1,9 @@
-import { Button } from "@/Components/ui/button"
 
 const Hero = () => {
-    return(
-        <div className="min-h-[70vh] flex justify-center items-center flex-col gap-5">
-            <h1 className="text-5xl font-semibold font-stretch-expanded">Yours Daily Planner App</h1>
-            <div className="flex gap-4 [&>button]:border-2 [&>button]:p-2 [&>button]:rounded-md [&>button]:bg-gray-600 [&>button]:text-white">
-            <button className="hover:bg-gray-500">Add a task</button>
-            <button className="hover:bg-gray-500">Completed Tasks</button>
-            <Button>
-                csd
-            </Button>
-            </div>
+    return (
+        <div className="flex flex-col gap-5 p-10 ">
+            <h1 className="text-5xl font-semibold font-stretch-expanded">Day Planner</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aliquid doloribus, saepe eveniet nemo numquam enim veniam necessitatibus quo? Reprehenderit repellendus aspernatur beatae ipsam quae doloribus laboriosam quam odit consequuntur!</h2>
         </div>
     )
 }

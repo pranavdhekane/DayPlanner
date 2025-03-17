@@ -6,7 +6,6 @@ import { Pie, PieChart } from "recharts"
 import {
 	Card,
 	CardContent,
-	CardFooter,
 	CardHeader,
 	CardTitle,
 } from "@/Components/ui/card"
@@ -20,15 +19,15 @@ import {
 const chartConfig = {
 	Learn: {
 		label: "Learn",
-		color: "hsl(var(--chart-1))",
+		color: "green",
 	},
 	safari: {
-		label: "Safari",
-		color: "hsl(var(--chart-2))",
+		label: "Other",
+		color: "red",
 	},
 	firefox: {
-		label: "Firefox",
-		color: "hsl(var(--chart-3))",
+		label: "Exercise",
+		color: "blue",
 	},
 } satisfies ChartConfig
 
@@ -52,9 +51,9 @@ export default function Chart() {
 	]
 
 	return (
-		<Card className="flex flex-col">
+		<Card className="flex flex-col gap-0 border-0 rounded-2xl pb-1">
 			<CardHeader className="items-center pb-0">
-				<CardTitle>Types</CardTitle>
+				<CardTitle>Task Types</CardTitle>
 			</CardHeader>
 			<CardContent className="flex-1 pb-0">
 				<ChartContainer
@@ -70,16 +69,11 @@ export default function Chart() {
 							data={chartData}
 							dataKey="points"
 							nameKey="type"
-							innerRadius={60}
+							innerRadius={50}
 						/>
 					</PieChart>
 				</ChartContainer>
 			</CardContent>
-			<CardFooter className="flex-col gap-2 text-sm">
-				<div className="flex items-center gap-2 font-medium leading-none">
-					Showing What kind of Work youre doing today
-				</div>
-			</CardFooter>
 		</Card>
 	)
 }

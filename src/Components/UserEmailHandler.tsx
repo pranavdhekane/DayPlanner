@@ -39,18 +39,20 @@ const UserEmailHandler = () => {
     };
 
     return (
-        <div className="flex bg-black min-h-[30vh] text-white flex-col justify-center items-center gap-4 text-center">
-            <h2 className="text-3xl font-semibold">Get Notified About your day, at the end of the day</h2>
+        <div className="p-5 pb-0">
+            <div className="w-auto flex bg-black text-white flex-col justify-center items-center gap-4 text-center p-10 rounded-2xl">
+                <h2 className="text-xl font-semibold">Get Notified About your day, at the end of the day</h2>
 
-            {/* Email Input */}
-            <div className="mb-4">
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="border px-4 py-2 rounded text-center min-w-full w-sm text-gray-500 border-white"
-                    placeholder="Enter your email"
-                />
+                {/* Email Input */}
+                <div className="">
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border px-4 py-2 rounded text-center text-gray-200 border-white text-sm"
+                        placeholder="Enter your email"
+                    />
+                </div>
             </div>
         </div>
     );

@@ -29,10 +29,11 @@ const AddTask = () => {
     };
 
     return (
-        <form className="bg-green-800 p-6" target="_self">
+        <div className="bg-red-500 p-6 md:p-10" >
+            <h2 className="text-lg font-semibold mb-4">Add Task</h2>
             <div
                 className="
-                        grid gap-4 p-6 rounded-2xl bg-white 
+                        grid gap-4 p-6 rounded-lg md:rounded-2xl bg-white 
                         [&>div]:grid [&>div]:gap-1
                         [&>div>input]:border [&>div>input]:border-black [&>div>input]:rounded [&>div>input]:px-2 [&>div>input]:py-1
                         [&>div>label]:text-gray-2
@@ -68,7 +69,7 @@ const AddTask = () => {
                     Add Task
                 </button>
             </div>
-        </form>
+        </div>
     );
 };
 
