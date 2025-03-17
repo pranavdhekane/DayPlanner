@@ -15,19 +15,21 @@ import {
 	ChartTooltip,
 	ChartTooltipContent,
 } from "@/Components/ui/chart"
+import { ChartLegend, ChartLegendContent } from "@/Components/ui/chart"
+
 
 const chartConfig = {
 	Learn: {
 		label: "Learn",
-		color: "green",
+		color: "orange",
 	},
-	safari: {
-		label: "Other",
-		color: "red",
-	},
-	firefox: {
+	Exercise: {
 		label: "Exercise",
 		color: "blue",
+	},
+	Other: {
+		label: "Other",
+		color: "red",
 	},
 } satisfies ChartConfig
 
@@ -45,13 +47,13 @@ export default function Chart() {
 	}
 
 	const chartData = [
-		{ type: 'Learn', points: Learn },
-		{ type: 'Other', points: Other },
-		{ type: 'Exercise', points: Exercise },
+		{ type: 'Learn', points: Learn, fill: "var(--color-Learn)" },
+		{ type: 'Exercise', points: Exercise, fill: "var(--color-Exercise)" },
+		{ type: 'Other', points: Other, fill: "var(--color-Other)" },
 	]
 
 	return (
-		<Card className="flex flex-col gap-0 border-0 rounded-2xl pb-1">
+		<Card className="flex flex-col gap-0 border-0 rounded-2xl">
 			<CardHeader className="items-center pb-0">
 				<CardTitle>Task Types</CardTitle>
 			</CardHeader>
@@ -65,6 +67,7 @@ export default function Chart() {
 							cursor={false}
 							content={<ChartTooltipContent hideLabel />}
 						/>
+						<ChartLegend content={<ChartLegendContent />} />
 						<Pie
 							data={chartData}
 							dataKey="points"

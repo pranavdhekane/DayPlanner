@@ -8,8 +8,8 @@ const SeeResult = () => {
 
     return(
         <div className="h-auto grid grid-cols-1 gap-5  bg-transperent p-5">
-            <div className="bg-gray-700 flex justify-center items-start p-5 flex-col text-white rounded-2xl" >
-                <p>Tasks :</p>
+            <div className="bg-white flex justify-center items-start p-5 flex-col rounded-2xl" >
+                <h2 className="text-lg font-semibold mb-2">Progress</h2>
                 <Progress value={ProgressValue} className="h-5"/>
             </div>
             <div className="h-auto">

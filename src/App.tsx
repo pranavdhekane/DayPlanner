@@ -30,8 +30,8 @@ const App = () => {
 						<AddTask />
 					</div>
 					<div className="
-						h-auto mb-[6rem] bg-amber-200
-						md:w-[50vw] md:h-screen md:overflow-y-scroll 
+						h-auto mb-[4rem] bg-yellow-200 flex flex-col-reverse
+						md:w-[50vw] md:h-screen md:overflow-y-scroll md:flex-col
 						[&::-webkit-scrollbar]:w-2
 						[&::-webkit-scrollbar-track]:rounded-full
 						[&::-webkit-scrollbar-track]:bg-gray-100

@@ -29,13 +29,13 @@ const AddTask = () => {
     };
 
     return (
-        <div className="bg-red-500 p-6 md:p-10" >
+        <div className="bg-indigo-100 p-6 md:p-10" >
             <h2 className="text-lg font-semibold mb-4">Add Task</h2>
             <div
                 className="
                         grid gap-4 p-6 rounded-lg md:rounded-2xl bg-white 
                         [&>div]:grid [&>div]:gap-1
-                        [&>div>input]:border [&>div>input]:border-black [&>div>input]:rounded [&>div>input]:px-2 [&>div>input]:py-1
+                        [&>div>input]:border [&>div>input]:border-black [&>div>input]:rounded [&>div>input]:px-2 [&>div>input]:py-1 
                         [&>div>label]:text-gray-2
                     "
             >
@@ -65,7 +65,7 @@ const AddTask = () => {
                     </Select>
                 </div>
 
-                <button onClick={handleDataChange} className="bg-blue-500 text-white p-2 rounded">
+                <button onClick={handleDataChange} className="bg-blue-500 hover:bg-blue-400 font-semibold text-white p-2 rounded">
                     Add Task
                 </button>
             </div>

@@ -39,9 +39,9 @@ const UserEmailHandler = () => {
     };
 
     return (
-        <div className="p-5 pb-0">
-            <div className="w-auto flex bg-black text-white flex-col justify-center items-center gap-4 text-center p-10 rounded-2xl">
-                <h2 className="text-xl font-semibold">Get Notified About your day, at the end of the day</h2>
+        <div className="p-5 pt-0 md:pt-5 md:pb-0">
+            <div className="w-auto flex bg-black text-white flex-col justify-center items-center gap-3  text-center p-6   rounded-2xl">
+                <h2 className="text-md font-semibold">Get Notified About your day, at the end of the day</h2>
 
                 {/* Email Input */}
                 <div className="">
