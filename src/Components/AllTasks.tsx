@@ -7,8 +7,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area"
 
-import imgBook from '@/assets/book.png';
-import imgDumbell from '@/assets/dumbell.png';
+import { Dumbbell, BookOpen } from "lucide-react";
 
 
 const AllTasks = () => {
@@ -28,12 +27,12 @@ const AllTasks = () => {
                             <div key={idx} className="px-6 py-5 border-3 rounded-2xl h-auto w-[15rem] md:w-[20rem] bg-white border-black">
                                 <div className="flex justify-between gap-2 items-start">
                                     <h2 className="text-xl font-medium text-wrap">{ob.Task}</h2>
-                                    <p className="min-w-6 max-w-6">
+                                    <p>
                                         {
                                             ob.Type === 'Learn'
-                                                ? <img src={imgBook}/>
+                                                ? <BookOpen/>
                                                 : ob.Type === 'Exercise'
-                                                    ? <img src={imgDumbell}/>
+                                                    ? <Dumbbell/>
                                                     : null
                                         }
                                     </p>

@@ -1,9 +1,14 @@
 
 const Hero = () => {
     return (
-        <div className="flex flex-col gap-5 p-10 py-14 ">
-            <h1 className="text-5xl font-semibold font-stretch-expanded">Day Planner</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aliquid doloribus, saepe eveniet nemo numquam enim veniam necessitatibus quo? Reprehenderit repellendus aspernatur beatae ipsam quae doloribus laboriosam quam odit consequuntur!</h2>
+        <div className="py-20 px-6">
+            <h1 className="text-5xl font-semibold mb-5">Day Planner</h1>
+            <h1 className="text-3xl font-semibold leading-tight mb-5">
+                Stay on Top of Your Day with Day Planner
+            </h1>
+            <p className="text-lg">
+                Organize your tasks, set goals, and get things done with ease. Your daily plan, refreshed at midnight, with no regrets.
+            </p>
         </div>
     )
 }

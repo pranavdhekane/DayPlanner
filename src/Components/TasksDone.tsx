@@ -3,8 +3,7 @@
 import { useTaskManager } from "./TaskManager";
 import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area"
 
-import imgBook from '@/assets/book.png';
-import imgDumbell from '@/assets/dumbell.png';
+import { Dumbbell, BookOpen } from "lucide-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
@@ -24,21 +23,22 @@ const TasksDone = () => {
                     ) : (
                         completedTasks.map((task: any, index: number) => (
                             <div key={index} className="px-6 py-5 border-3 my-2 rounded-2xl border-black">
-                                <h2 className="text-xl font-medium">{task.Task}</h2>
-                                <div className="flex gap-2">
-                                    <h2 className="text-sm">
-                                        <FontAwesomeIcon icon={faClock} />
-                                        : {task.Time}</h2>
-                                    <p className="min-w-4 max-w-4">
+                                <h2 className="text-xl font-medium flex justify-around items-center gap-3">
+                                    {task.Task}
+                                    <div className="flex justify-center items-center">
                                         {
                                             task.Type === 'Learn'
-                                                ? <img src={imgBook} />
+                                                ? <BookOpen size={18} />
                                                 : task.Type === 'Exercise'
-                                                    ? <img src={imgDumbell} />
+                                                    ? <Dumbbell size={18} />
                                                     : null
                                         }
-                                    </p>
-                                </div>
+                                    </div>
+                                </h2>
+                                <h2 className="text-sm">
+                                    <FontAwesomeIcon icon={faClock} />
+                                    : {task.Time}</h2>
+
                             </div>
                         ))
                     )}

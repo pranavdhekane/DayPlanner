@@ -1,8 +1,24 @@
 import { useRef } from "react";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import { Mail, ListChecks, XCircle, Menu, Plus, X, Info, Home } from "lucide-react";
+import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+interface NavbarProps {
+    scrollToHero: () => void;
+    scrollToAllTasks: () => void;
+    scrollToTasksDone: () => void;
+    scrollToAddTask: () => void;
+    scrollToInfo: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({
+    scrollToHero,
+    scrollToAllTasks,
+    scrollToTasksDone,
+    scrollToAddTask,
+    // scrollToInfo,
+}) => {
     const [isWide, setIsWide] = useState<boolean>(false);
 
     const nav = useRef<HTMLElement>(null);
@@ -21,42 +37,79 @@ export default function Navbar() {
         }
     };
 
+    const btnStyle = `
+        bg-amber-100 text-black hover:bg-amber-500 h-9 md:h-12 w-9 ${isWide ? 'md:w-[10rem]' : 'md:w-12'} relative hover:text-white
+    `;
+
     return (
         <nav
             className={`
             h-[4rem] w-full flex justify-center items-center gap-3 fixed bottom-0 z-30
             md:w-[5vw] md:min-w-fit md:h-screen bg-amber-300 duration-300 ease-in-out p-5 md:static
-            md:grid md:grid-cols-1 md:items-stretch
-            [&>div]:flex [&>div]:justify-around [&>div]:gap-3
-            md:[&>div]:grid md:[&>div]:items-center
-            [&>div>Button]:bg-amber-100 [&>div>Button]:text-black [&>div>Button:hover]:bg-amber-500 
-            [&>div>Button]:w-10 md:[&>div>Button]:${isWide ? "w-[10rem]" : "w-12"} [&>div>Button]:h-10 md:[&>div>Button]:h-12 [&>div>Button]:relative
-      `}
+            md:grid md:grid-cols-1 md:content-evenly
+            md:[&>div]:grid md:[&>div]:place-items-center
+            `}
             ref={nav}
         >
-            <div>
+            <div className="hidden">
                 <Button
                     onClick={toggleNav}
-                    className={`hidden md:flex`}
+                    className={`hidden md:flex` + btnStyle}
                 >
                     <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
+                        className={` absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
                     >
-                        E
+                        <Menu/>
                     </span>
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
                     >
-                        Expand
+                        <X />
                     </span>
                 </Button>
+
             </div>
-            <div>
-                <Button >
+            <div className="flex justify-center items-center gap-3">
+                <Link to="/">
+                    <Button onClick={scrollToHero} className={btnStyle} title="Home">
+                        <span
+                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
+                        >
+                            <Home />
+                        </span>
+                        <span
+                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
+                        >
+                            Home
+                        </span>
+                    </Button>
+                </Link>
+                <Link to="/about">
+                    <Button className={btnStyle} title="Get Info">
+                        <span
+                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
+                        >
+                            <Info />
+                        </span>
+                        <span
+                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
+                        >
+                            Get Info
+                        </span>
+                    </Button>
+
+                </Link>
+            </div>
+            <div className="flex justify-center items-center gap-3">
+            <Button onClick={scrollToAllTasks} className={btnStyle} title="Remaining Tasks">
+                    
+                        {isWide ? 'hello' : 'hi'}
+                </Button>
+                <Button onClick={scrollToAllTasks} className={btnStyle} title="Remaining Tasks">
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
                     >
-                        R
+                        <XCircle />
                     </span>
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
@@ -64,11 +117,11 @@ export default function Navbar() {
                         Remaining Tasks
                     </span>
                 </Button>
-                <Button >
+                <Button onClick={scrollToTasksDone} className={btnStyle} title="Completed Tasks">
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
                     >
-                        C
+                        <ListChecks />
                     </span>
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
@@ -76,11 +129,11 @@ export default function Navbar() {
                         Completed Tasks
                     </span>
                 </Button>
-                <Button >
+                <Button className={btnStyle} title="Get Email">
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
                     >
-                        E
+                        <Mail />
                     </span>
                     <span
                         className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
@@ -89,21 +142,17 @@ export default function Navbar() {
                     </span>
                 </Button>
 
-            </div>
-            <div>
-                <Button >
+                <Button onClick={scrollToAddTask} className={btnStyle}>
                     <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
+                        className={`absolute transition-opacity duration-0 ease-in-out`}
                     >
-                        +
-                    </span>
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                    >
-                        Add Task
+                        <Plus />
                     </span>
                 </Button>
             </div>
         </nav>
     );
 }
+
+
+export default Navbar;

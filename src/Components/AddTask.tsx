@@ -55,7 +55,7 @@ const AddTask = () => {
                     <label htmlFor="type">How will u define the type of job ? </label>
                     <Select onValueChange={setType}>
                         <SelectTrigger className="w-[180px]">
-                            <SelectValue placeholder="Select Type" />
+                            <SelectValue placeholder="Select Type"/>
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="Learn">Learn</SelectItem>
