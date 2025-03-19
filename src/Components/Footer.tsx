@@ -1,8 +1,8 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
-// import { faSquareGithub } from '@fortawesome/free-brands-svg-icons';
-// import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faSquareGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
     return (
@@ -11,13 +11,13 @@ const Footer = () => {
             <div>
                 <div className="flex gap-5 text-xl [&>a:hover]:text-gray-600">
                     <a href="#">
-                        {/* <FontAwesomeIcon icon={faXTwitter} /> */}
+                        <FontAwesomeIcon icon={faXTwitter} />
                     </a>
                     <a href="#">
-                        {/* <FontAwesomeIcon icon={faSquareGithub} /> */}
+                        <FontAwesomeIcon icon={faSquareGithub} />
                     </a>
                     <a href="#">
-                        {/* <FontAwesomeIcon icon={faLinkedin} /> */}
+                        <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                 </div>
             </div>

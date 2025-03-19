@@ -9,7 +9,6 @@ interface NavbarProps {
     scrollToAllTasks: () => void;
     scrollToTasksDone: () => void;
     scrollToAddTask: () => void;
-    scrollToInfo: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -17,7 +16,6 @@ const Navbar: React.FC<NavbarProps> = ({
     scrollToAllTasks,
     scrollToTasksDone,
     scrollToAddTask,
-    // scrollToInfo,
 }) => {
     const [isWide, setIsWide] = useState<boolean>(false);
 
@@ -38,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({
     };
 
     const btnStyle = `
-        bg-amber-100 text-black hover:bg-amber-500 h-9 md:h-12 w-9 ${isWide ? 'md:w-[10rem]' : 'md:w-12'} relative hover:text-white
+        bg-amber-100 text-black hover:bg-amber-500 h-9 md:h-12 w-9 ${isWide ? 'md:w-[10rem]' : 'md:w-12'} hover:text-white
     `;
 
     return (
@@ -56,98 +54,33 @@ const Navbar: React.FC<NavbarProps> = ({
                     onClick={toggleNav}
                     className={`hidden md:flex` + btnStyle}
                 >
-                    <span
-                        className={` absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
-                    >
-                        <Menu/>
-                    </span>
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                    >
-                        <X />
-                    </span>
+                    {isWide ? <X /> : <Menu  />}
                 </Button>
-
             </div>
             <div className="flex justify-center items-center gap-3">
                 <Link to="/">
                     <Button onClick={scrollToHero} className={btnStyle} title="Home">
-                        <span
-                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
-                        >
-                            <Home />
-                        </span>
-                        <span
-                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                        >
-                            Home
-                        </span>
+                        {isWide ? 'Home' : <Home />}
                     </Button>
                 </Link>
                 <Link to="/about">
                     <Button className={btnStyle} title="Get Info">
-                        <span
-                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
-                        >
-                            <Info />
-                        </span>
-                        <span
-                            className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                        >
-                            Get Info
-                        </span>
+                        {isWide ? 'Get Info' : <Info />}
                     </Button>
-
                 </Link>
             </div>
             <div className="flex justify-center items-center gap-3">
-            <Button onClick={scrollToAllTasks} className={btnStyle} title="Remaining Tasks">
-                    
-                        {isWide ? 'hello' : 'hi'}
-                </Button>
                 <Button onClick={scrollToAllTasks} className={btnStyle} title="Remaining Tasks">
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
-                    >
-                        <XCircle />
-                    </span>
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                    >
-                        Remaining Tasks
-                    </span>
+                    {isWide ? 'Remaining Tasks' : <XCircle />}
                 </Button>
                 <Button onClick={scrollToTasksDone} className={btnStyle} title="Completed Tasks">
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
-                    >
-                        <ListChecks />
-                    </span>
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                    >
-                        Completed Tasks
-                    </span>
+                    {isWide ? 'Completed Tasks' : <ListChecks />}
                 </Button>
                 <Button className={btnStyle} title="Get Email">
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-0" : "opacity-100"}`}
-                    >
-                        <Mail />
-                    </span>
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out ${isWide ? "opacity-100" : "opacity-0"}`}
-                    >
-                        Get Email
-                    </span>
+                    {isWide ? 'Get Email' : <Mail />}
                 </Button>
-
                 <Button onClick={scrollToAddTask} className={btnStyle}>
-                    <span
-                        className={`absolute transition-opacity duration-0 ease-in-out`}
-                    >
-                        <Plus />
-                    </span>
+                    <Plus />
                 </Button>
             </div>
         </nav>

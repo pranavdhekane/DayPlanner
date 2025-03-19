@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 
 const Info = () => {
   return (
@@ -54,6 +55,9 @@ const Info = () => {
         <p className="text-gray-700">Let me know if you need any more details or if there's anything specific you'd like to see in the app!</p>
       </section>
 
+      </div>
+      <div className="md:block hidden">
+      <Footer/>
       </div>
     </div>
   );

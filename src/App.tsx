@@ -16,7 +16,6 @@ const App = () => {
   const allTasksRef = useRef<HTMLDivElement | null>(null);
   const tasksDoneRef = useRef<HTMLDivElement | null>(null);
   const addTaskRef = useRef<HTMLDivElement | null>(null);
-  const infoRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
     if (sectionRef.current) {
@@ -39,14 +38,13 @@ const App = () => {
       <TaskProvider>
         <div className="md:flex md:h-screen md:overflow-hidden md:justify-between">
           {/* Navbar with links to routes */}
-          <Navbar 
-            scrollToHero={() => scrollToSection(heroRef)} 
-            scrollToAllTasks={() => scrollToSection(allTasksRef)} 
-            scrollToTasksDone={() => scrollToSection(tasksDoneRef)} 
-            scrollToAddTask={() => scrollToSection(addTaskRef)} 
-            scrollToInfo={() => scrollToSection(infoRef)} 
+          <Navbar
+            scrollToHero={() => scrollToSection(heroRef)}
+            scrollToAllTasks={() => scrollToSection(allTasksRef)}
+            scrollToTasksDone={() => scrollToSection(tasksDoneRef)}
+            scrollToAddTask={() => scrollToSection(addTaskRef)}
           />
-          
+
           {/* Main Content Area */}
           <div
             className={`
@@ -61,10 +59,10 @@ const App = () => {
                   <div ref={allTasksRef}><AllTasks /></div>
                   <div ref={tasksDoneRef}><TasksDone /></div>
                   <div ref={addTaskRef} id='addTask'><AddTask /></div>
-                  <div className='hidden md:block'><Footer/></div>
+                  <div className='hidden md:block'><Footer /></div>
                 </>
               } />
-              
+
               {/* Route for About section */}
               <Route path="/about" element={<Info />} />
             </Routes>
@@ -77,9 +75,18 @@ const App = () => {
               md:w-[50vw] md:h-screen md:overflow-y-scroll md:flex-col
             `+ scrollBarStyle}
           >
-            <div className='md:hidden block'><Footer/></div>
-            <UseEmailHandler />
-            <SeeResult />
+            <Routes>
+              <Route path='/' element={
+                <>
+                  <div className='md:hidden block'><Footer /></div>
+                  <UseEmailHandler />
+                  <SeeResult />
+                </>
+              }/>
+              <Route path='/about' element={
+                <></>
+              }/>
+            </Routes>
           </div>
         </div>
       </TaskProvider>
