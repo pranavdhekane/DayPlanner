@@ -54,12 +54,13 @@ export default tseslint.config({
 ```
 # Notes
 
-1. Color Scheme (Better)
-2. Working Email
 6. Readme updated
 7. Github Update ..Linkedin / x post .... portfolio update
-8. Better Vocab and font
 9. eslint 
+
+1. Color Scheme (Better)
+2. Working Email (Half way done)
+8. Better Vocab and font (okayish)
 
 3. Icons (DONE) and Assets (DONE)
 4. Routing (DONE)

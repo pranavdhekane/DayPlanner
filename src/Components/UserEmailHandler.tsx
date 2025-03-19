@@ -15,14 +15,21 @@ const UserEmailHandler = () => {
     // Function to send a daily summary email using EmailJS
     const sendDailyEmail = () => {
         if (email) {
+            const completedTasks = localStorage.getItem("tasksDone") || "No completed tasks";
+            const pendingTasks = localStorage.getItem("user") || "No pending tasks";
+            const todayDate = new Date().toLocaleDateString(); // Format: MM/DD/YYYY
+
             const templateParams = {
-                user_email: email,   // User's email from localStorage
-                user_summary: "Here is your daily summary. Keep up the great work!"  // Example summary
+                user_email: email, 
+                user_name: email, 
+                date: todayDate,
+                completed_tasks: completedTasks,
+                pending_tasks: pendingTasks,
             };
 
             // Send email using EmailJS
             emailjs
-                .send("your_service_id", "your_template_id", templateParams, "your_user_id") // Replace with your EmailJS service ID, template ID, and user ID
+                .send("service_azlcwg5", "template_019f9vs", templateParams, "l0PJ7OlEpTriYQldn") 
                 .then(
                     (response) => {
                         console.log("SUCCESS!", response);
@@ -48,12 +55,12 @@ const UserEmailHandler = () => {
                 {message && <p className="mt-3">{message}</p>}
 
                 {/* Email Input */}
-                <div className="">
+                <div>
                     <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="border px-4 py-2 rounded text-center text-gray-200 border-white text-sm w max-w-[80%]"
+                        className="border px-4 py-2 rounded text-center text-gray-200 border-white text-sm w-full max-w-[80%]"
                         placeholder="Enter your email"
                     />
                 </div>
@@ -61,9 +68,9 @@ const UserEmailHandler = () => {
                 {/* Button to send email */}
                 <button
                     onClick={sendDailyEmail}
-                    className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+                    className="mt-4 bg-blue-500 hover:bg-blue-600 transition duration-200 text-white py-2 px-6 rounded-lg"
                 >
-                    Send Summary via Email
+                    📩 Send Summary via Email
                 </button>
             </div>
         </div>
