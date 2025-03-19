@@ -7,7 +7,6 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
     return (
         <footer className="grid p-10 place-items-center gap-5 bg-zinc-800 text-white">
-
             <div>
                 <div className="flex gap-5 text-xl [&>a:hover]:text-gray-600">
                     <a href="#">

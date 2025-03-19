@@ -10,6 +10,7 @@ import { TaskProvider } from "./Components/TaskManager";
 import AddTask from "./Components/AddTask";
 import Info from "./Components/Info";
 import Footer from './Components/Footer';
+import AboutMe from './Components/AboutMe';
 
 const App = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
@@ -78,13 +79,13 @@ const App = () => {
             <Routes>
               <Route path='/' element={
                 <>
-                  <div className='md:hidden block'><Footer /></div>
+                  {/* <div className='md:hidden block'><Footer /></div> */}
                   <UseEmailHandler />
                   <SeeResult />
                 </>
               }/>
               <Route path='/about' element={
-                <></>
+                <AboutMe/>
               }/>
             </Routes>
           </div>

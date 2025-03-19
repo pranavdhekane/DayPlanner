@@ -14,12 +14,12 @@ const AllTasks = () => {
     const { tasks, deleteTask, markTaskAsDone } = useTaskManager();
 
     return (
-        <div className="p-10 bg-amber-100">
+        <div className="p-6 md:p-10 bg-amber-100">
             <h2 className="text-lg font-semibold mb-4">Remaining Tasks</h2>
             <ScrollArea className="w-full whitespace-nowrap rounded-md ">
                 <div className="flex w-max space-x-4 h-auto">
                     {tasks.length === 0 ? (
-                        <div className="px-6 py-5 border-3 border-black rounded-2xl h-auto w-[20rem] bg-white">
+                        <div className="px-6 py-5 border-3 border-black rounded-2xl h-auto w-[15rem] bg-white">
                             No tasks Pending.
                         </div>
                     ) : (

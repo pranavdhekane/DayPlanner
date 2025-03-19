@@ -1,67 +1,62 @@
-import Footer from "./Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faClock, faTasks } from "@fortawesome/free-solid-svg-icons";
 
 const Info = () => {
   return (
-    <div>
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-4xl mx-auto p-6 md:p-10">
       <h1 className="text-3xl font-bold text-center mb-6">Day Planner</h1>
-      
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Key Features</h2>
-        <ul className="list-inside list-disc text-gray-700 space-y-2">
-          <li><strong>Daily Activity Storage:</strong> Store all the activities and tasks you need to accomplish throughout the day. No more forgotten to-dos!</li>
-          <li><strong>Auto Data Deletion:</strong> At midnight, all data gets automatically erased, ensuring you can start fresh every day without holding onto past tasks.</li>
-          <li><strong>Instant Email Summary:</strong> With just one click, you can receive an email that includes all the activities you've planned for the day. Stay informed, even on the go!</li>
-        </ul>
-      </section>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Tech Stack</h2>
-        <p className="text-gray-700 mb-4">The app has been built using cutting-edge technologies to provide a smooth and modern user experience.</p>
-        <ul className="list-inside list-disc text-gray-700 space-y-2">
-          <li><strong>Frontend:</strong> 
-            <ul className="ml-4 list-inside list-disc text-gray-600">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Vite</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </li>
-          <li><strong>Local Storage:</strong> All the data is saved on your browser’s local storage, so your tasks and activities are always available locally. There is no need for a backend—keeping things fast, private, and simple.</li>
-          <li><strong>Email Integration:</strong> Using a third-party email API, the app allows you to send a summary email of your activities with a single button click, so you never miss a detail of your day.</li>
-        </ul>
-      </section>
+      <p className="text-lg text-gray-700 text-center">
+        Ever feel like your day just slips away without getting things done? <b>Day Planner</b> is here to help!  
+        It’s a simple, no-fuss way to organize your daily tasks and stay on top of everything.
+      </p>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Libraries & Tools Used</h2>
-        <ul className="list-inside list-disc text-gray-700 space-y-2">
-          <li><strong>Shadcn Charts:</strong> Beautiful charts to visualize your data and activity trends.</li>
-          <li><strong>FontAwesome & Ludica React Icons:</strong> To enhance the user experience with rich, customizable icons.</li>
-          <li><strong>ChatGPT:</strong> Integrated for conversational support and providing additional insights or assistance.</li>
-        </ul>
-      </section>
+      <div className="mt-8 space-y-6">
+        <div className="flex items-center gap-4">
+          <FontAwesomeIcon icon={faTasks} className="text-blue-500 text-2xl" />
+          <p className="text-lg">
+            <b>Effortless Task Management</b> – Jot down everything you need to do for the day, all in one place.
+          </p>
+        </div>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Design Philosophy</h2>
-        <p className="text-gray-700">
-          The primary focus while building <strong>Day Planner</strong> was on the frontend. I wanted to create an intuitive, easy-to-use interface with a sleek, minimalistic design, allowing users to focus solely on their tasks without distractions.
-        </p>
-        <p className="text-gray-700">
-          By using Tailwind CSS, I ensured that the design is both responsive and lightweight, providing an excellent user experience across all devices. Whether you're on the go or working from your desktop, Day Planner is here to streamline your daily planning and make productivity feel effortless.
-        </p>
-      </section>
+        <div className="flex items-center gap-4">
+          <FontAwesomeIcon icon={faClock} className="text-green-500 text-2xl" />
+          <p className="text-lg">
+            <b>Auto-Clear at Midnight</b> – Every day is a fresh start! Tasks are cleared at midnight automatically.
+          </p>
+        </div>
 
-      <section className="text-center">
-        <p className="text-gray-700">Let me know if you need any more details or if there's anything specific you'd like to see in the app!</p>
-      </section>
-
+        <div className="flex items-center gap-4">
+          <FontAwesomeIcon icon={faEnvelope} className="text-red-500 text-2xl" />
+          <p className="text-lg">
+            <b>One-Click Email Summary</b> – Receive a summary of your planned activities straight to your inbox.
+          </p>
+        </div>
       </div>
-      <div className="md:block hidden">
-      <Footer/>
+
+      <div className="mt-10">
+        <h2 className="text-2xl font-semibold mb-4">🛠 Tech Stack</h2>
+        <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
+          <li><b>Frontend:</b> React + TypeScript + Vite + Tailwind CSS</li>
+          <li><b>Local Storage:</b> Saves tasks locally—no backend needed.</li>
+          <li><b>Email Integration:</b> Uses a third-party API for email summaries.</li>
+          <li><b>Shadcn Charts:</b> Displays activity trends visually.</li>
+          <li><b>FontAwesome & Lucide Icons:</b> Enhances the user experience.</li>
+          <li><b>ChatGPT Assistance:</b> Helped in refining ideas and troubleshooting during development.</li>
+        </ul>
       </div>
+
+      <div className="mt-10">
+        <h2 className="text-2xl font-semibold mb-4">🎯 Why I Built This</h2>
+        <p className="text-lg text-gray-700">
+          I wanted <b>Day Planner</b> to be simple, fast, and distraction-free—a tool that helps you stay productive  
+          without overcomplicating things. The clean, minimal design ensures that you can focus on what really matters:  
+          getting things done.
+        </p>
+      </div>
+
     </div>
   );
 };
-
 
 export default Info;
