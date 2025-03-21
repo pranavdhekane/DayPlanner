@@ -35,8 +35,6 @@ const pendingTasks =
                 pending_tasks: pendingTasks,
             };
 
-            console.log(templateParams)
-
             emailjs
                 .send("service_azlcwg5", "template_019f9vs", templateParams, "l0PJ7OlEpTriYQldn")
                 .then(

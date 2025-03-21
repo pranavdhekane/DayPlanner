@@ -17,7 +17,7 @@ const AllTasks = () => {
     const { tasks, deleteTask, markTaskAsDone } = useTaskManager();
 
     return (
-        <div className="p-6 md:p-10 bg-blue-50">
+        <div className="p-6 md:p-10 bg-blue-100">
             <h2 className="text-lg font-semibold mb-4">Remaining Tasks</h2>
             <ScrollArea className="w-full whitespace-nowrap rounded-md ">
                 <div className="flex w-max space-x-4 h-auto">

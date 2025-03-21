@@ -1,19 +1,24 @@
-# Notes
-6. Readme updated
-7. Github Update ..Linkedin / x post .... portfolio update
+# Day Planner
 
+**Day Planner** is a simple, no-fuss tool to organize your daily tasks and stay productive. It helps you manage your day efficiently with features like effortless task management, auto-clear at midnight, and one-click email summaries.
 
-8. Better Vocab and font (okayish)
-3. Icons (DONE) and Assets (DONE)
-4. Routing (DONE)
-5. Footer / About me (DONE)
-9. eslint (did it)
-2. Working Email (Half way done)
-1. Color Scheme (Okayish)
+🔗 **Live Site:** [Day Planner](https://dayplanner-web.netlify.app/)
 
+## ✨ Features
 
-/// updates to be made
-<!-- AboutMe social links update -->
-<!-- Footer Same -->
-<!-- AfterAddTask A message regarding added task / about adding a task / what to do after kinda thing  -->
-<!-- UserEmailHandler comments removal and debuging and proper email rendering -->
+- **Effortless Task Management** – Jot down everything you need to do for the day, all in one place.
+- **Auto-Clear at Midnight** – Every day is a fresh start! Tasks are automatically cleared at midnight.
+- **One-Click Email Summary** – Receive a summary of your planned activities straight to your inbox.
+- **Activity Trends** – Visualize your productivity trends with charts.
+
+## 🛠 Tech Stack
+
+- **Frontend:** React + TypeScript + Vite + Tailwind CSS
+- **Local Storage:** Saves tasks locally—no backend needed.
+- **Email Integration:** Uses a third-party API for email summaries.
+- **Shadcn Charts:** Displays activity trends visually.
+- **FontAwesome & Lucide Icons:** Enhances the user experience.
+
+## 🎯 Why I Built This
+
+I wanted **Day Planner** to be simple, fast, and distraction-free—a tool that helps you stay productive without overcomplicating things. The clean, minimal design ensures that you can focus on what really matters: getting things done.

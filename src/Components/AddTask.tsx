@@ -28,7 +28,7 @@ const AddTask = () => {
     };
 
     return (
-        <div className="bg-blue-50 p-6 md:p-10" >
+        <div className="bg-blue-100 p-6 md:p-10" >
             <h2 className="text-lg font-semibold mb-4">Add Task</h2>
             <div
                 className="
