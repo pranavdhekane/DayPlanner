@@ -1,4 +1,3 @@
-import me from "@/assets/me.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -7,14 +6,15 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const AboutMe = () => {
     return (
-        <section className="flex flex-col items-center justify-center h-full p-6 text-center gap-6">
-            <div className="w-3/4 max-w-sm">
-                <img src={me} alt="Pranav Dhekane" className="rounded-3xl border-4 border-zinc-700" />
+        <section className=" min-h-fit h-full flex flex-col items-center justify-center px-6 py-10 text-center gap-6 ">
+            <div className='w-full max-w-sm rounded-3xl p-10 bg-white grid gap-6'>
+            <div className="font-semibold border-b-2  border-black w-fit">
+                ABOUT THE DEV
             </div>
 
             <div className="max-w-lg">
                 <h1 className="text-3xl font-bold">Hey, I'm Pranav! 👋</h1>
-                <p className="text-gray-700 mt-3 text-lg">
+                <p className=" mt-3 text-lg">
                     I love building things with code—whether it's solving tricky DSA problems or crafting smooth, interactive UIs.
                     Always learning, always experimenting, and always looking for ways to improve. 🚀
                 </p>
@@ -35,7 +35,7 @@ const AboutMe = () => {
                     </li>
                     <li>
                         <a
-                            href="https://linkedin.com/in/pranavdhekane"
+                            href="https://www.linkedin.com/in/pranav-dhekane-293047292"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-500 hover:text-blue-700 transition-colors"
@@ -54,6 +54,7 @@ const AboutMe = () => {
                         </a>
                     </li>
                 </ul>
+            </div>
             </div>
         </section>
     );

@@ -1,35 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import emailjs from "emailjs-com";
+import { useTaskManager } from "./TaskManager";
+interface TaskData {
+    Task: string;
+    Time: string;
+    Type: string;
+}
 
 const UserEmailHandler = () => {
-    // Store user's email permanently
-    const [email, setEmail] = useState(() => localStorage.getItem("userEmail") || "");
+    const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const { completedTasks, tasks } = useTaskManager();
 
-    useEffect(() => {
-        if (email) {
-            localStorage.setItem("userEmail", email); // Store email in localStorage permanently
-        }   
-    }, [email]);
+    const tasksDone =
+    completedTasks.length > 0
+        ? completedTasks.map((ob: TaskData, i:number) => `${i+1}) ${ob.Task} - ${ob.Time}`).join("\n")
+        : "No completed tasks available.";
 
-    // Function to send a daily summary email using EmailJS
+const pendingTasks =
+    tasks.length > 0
+        ? tasks.map((ob: TaskData, i:number) => `${i+1}) ${ob.Task} - ${ob.Time}`).join("\n")
+        : "No pending tasks available.";
+
+
     const sendDailyEmail = () => {
         if (email) {
-            const completedTasks = localStorage.getItem("tasksDone") || "No completed tasks";
-            const pendingTasks = localStorage.getItem("user") || "No pending tasks";
-            const todayDate = new Date().toLocaleDateString(); // Format: MM/DD/YYYY
+            const todayDate = new Date().toLocaleDateString(); 
 
             const templateParams = {
-                user_email: email, 
-                user_name: email, 
+                user_email: email,
+                user_name: email,
                 date: todayDate,
-                completed_tasks: completedTasks,
+                completed_tasks: tasksDone,
                 pending_tasks: pendingTasks,
             };
 
-            // Send email using EmailJS
+            console.log(templateParams)
+
             emailjs
-                .send("service_azlcwg5", "template_019f9vs", templateParams, "l0PJ7OlEpTriYQldn") 
+                .send("service_azlcwg5", "template_019f9vs", templateParams, "l0PJ7OlEpTriYQldn")
                 .then(
                     (response) => {
                         console.log("SUCCESS!", response);
@@ -41,20 +50,16 @@ const UserEmailHandler = () => {
                     }
                 );
         } else {
-            console.log("❌ No email found, skipping daily summary email.");
-            setMessage("❌ No email found, skipping daily summary email.");
+            console.log("❌ No email found.");
+            setMessage("❌ No email found.");
         }
     };
 
     return (
         <div className="p-5 pt-0 md:pt-5 md:pb-0">
             <div className="flex bg-black text-white flex-col justify-center items-center gap-3 text-center p-6 rounded-2xl">
-                <h2 className="text-md font-semibold">Get Notified About your day, at the end of the day</h2>
+                <h2 className="text-md font-semibold">Get Your Activity at your mail</h2>
 
-                {/* Show message */}
-                {message && <p className="mt-3">{message}</p>}
-
-                {/* Email Input */}
                 <div>
                     <input
                         type="email"
@@ -65,13 +70,13 @@ const UserEmailHandler = () => {
                     />
                 </div>
 
-                {/* Button to send email */}
                 <button
                     onClick={sendDailyEmail}
-                    className="mt-4 bg-blue-500 hover:bg-blue-600 transition duration-200 text-white py-2 px-6 rounded-lg"
-                >
+                    className="mt-2 bg-blue-500 hover:bg-blue-600 transition duration-200 text-white py-2 px-6 rounded-lg"
+                    >
                     📩 Send Summary via Email
                 </button>
+            {message && <p className="">{message}</p>}
             </div>
         </div>
     );

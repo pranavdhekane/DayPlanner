@@ -1,5 +1,3 @@
-
-// Update TasksDone.tsx
 import { useTaskManager } from "./TaskManager";
 import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area"
 
@@ -7,6 +5,12 @@ import { Dumbbell, BookOpen } from "lucide-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+
+interface TaskData {
+    Task: string;
+    Time: string;
+    Type: string;
+}
 
 const TasksDone = () => {
     const { completedTasks } = useTaskManager();
@@ -21,7 +25,7 @@ const TasksDone = () => {
                             No tasks completed yet.
                         </div>
                     ) : (
-                        completedTasks.map((task: any, index: number) => (
+                        completedTasks.map((task: TaskData, index: number) => (
                             <div key={index} className="px-6 py-5 border-3 my-2 rounded-2xl border-black">
                                 <h2 className="text-xl font-medium flex justify-around items-center gap-3">
                                     {task.Task}

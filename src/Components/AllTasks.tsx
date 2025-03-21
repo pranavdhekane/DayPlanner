@@ -1,5 +1,3 @@
-
-// Update AllTasks.tsx
 import { useTaskManager } from "./TaskManager";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,12 +7,17 @@ import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area"
 
 import { Dumbbell, BookOpen } from "lucide-react";
 
+interface TaskData {
+    Task: string;
+    Time: string;
+    Type: string;
+}
 
 const AllTasks = () => {
     const { tasks, deleteTask, markTaskAsDone } = useTaskManager();
 
     return (
-        <div className="p-6 md:p-10 bg-amber-100">
+        <div className="p-6 md:p-10 bg-blue-50">
             <h2 className="text-lg font-semibold mb-4">Remaining Tasks</h2>
             <ScrollArea className="w-full whitespace-nowrap rounded-md ">
                 <div className="flex w-max space-x-4 h-auto">
@@ -23,7 +26,7 @@ const AllTasks = () => {
                             No tasks Pending.
                         </div>
                     ) : (
-                        tasks.map((ob: any, idx: number) => (
+                        tasks.map((ob : TaskData, idx: number) => (
                             <div key={idx} className="px-6 py-5 border-3 rounded-2xl h-auto w-[15rem] md:w-[20rem] bg-white border-black">
                                 <div className="flex justify-between gap-2 items-start">
                                     <h2 className="text-xl font-medium text-wrap">{ob.Task}</h2>

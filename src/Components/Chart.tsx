@@ -58,25 +58,30 @@ export default function Chart() {
 				<CardTitle>Task Types</CardTitle>
 			</CardHeader>
 			<CardContent className="flex-1 pb-0">
-				<ChartContainer
-					config={chartConfig}
-					className="mx-auto aspect-square max-h-[250px]"
-				>
-					<PieChart>
-						<ChartTooltip
-							cursor={false}
-							content={<ChartTooltipContent hideLabel />}
-						/>
-						<ChartLegend content={<ChartLegendContent />} />
-						<Pie
-							data={chartData}
-							dataKey="points"
-							nameKey="type"
-							innerRadius={50}
-						/>
-					</PieChart>
-				</ChartContainer>
+				{
+					Other || Exercise || Learn ?
+						<ChartContainer
+							config={chartConfig}
+							className="mx-auto aspect-square max-h-[250px]"
+						>
+							<PieChart>
+								<ChartLegend content={<ChartLegendContent />} />
+								<ChartTooltip
+									cursor={false}
+									content={<ChartTooltipContent hideLabel />}
+								/>
+								<Pie
+									data={chartData}
+									dataKey="points"
+									nameKey="type"
+									innerRadius={50}
+								/>
+							</PieChart>
+						</ChartContainer>
+						: <div className="justify-center flex items-center">Enter Entries to see the analyzation</div>
+				}
 			</CardContent>
+
 		</Card>
 	)
 }

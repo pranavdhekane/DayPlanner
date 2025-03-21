@@ -1,21 +1,17 @@
-// TaskManager.tsx - Centralized Task Management with Expiry
 import { createContext, useContext, useEffect, useState } from "react";
 
-// Define Task type
 interface TaskData {
     Task: string;
     Time: string;
     Type: string;
 }
 
-// Function to get end-of-day timestamp
 const getEndOfDayTimestamp = () => {
     const now = new Date();
     const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
     return endOfDay.getTime();
 };
 
-// Context for tasks
 const TaskContext = createContext<any>(null);
 
 export const TaskProvider = ({ children }: { children: React.ReactNode }) => {

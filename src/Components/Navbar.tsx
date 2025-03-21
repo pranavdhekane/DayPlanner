@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import { Mail, ListChecks, XCircle, Menu, Plus, X, Info, Home } from "lucide-react";
+import {ListChecks, XCircle, Menu, Plus, X, Info, Home } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 interface NavbarProps {
@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <nav
             className={`
                 h-[4.5rem] w-full flex justify-center items-center gap-3 fixed bottom-0 z-30
-                md:w-[5vw] md:min-w-fit md:h-screen bg-amber-300 duration-300 ease-in-out p-5 md:static
+                md:w-[5vw] md:min-w-fit md:h-screen bg-yellow-400 duration-300 ease-in-out p-5 md:static
                 md:grid md:grid-cols-1 md:content-evenly
                 md:[&>div]:grid md:[&>div]:place-items-center
             `}
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     {isWide ? "Home" : <Home />}
                 </Button>
                 <Button onClick={() => handleNavigation("/about", () => { })} className={btnStyle} title="Get Info">
-                    {isWide ? "Get Info" : <Info />}
+                    {isWide ? "Info" : <Info />}
                 </Button>
             </div>
             <div className="flex justify-center items-center gap-3">
@@ -82,11 +82,8 @@ const Navbar: React.FC<NavbarProps> = ({
                 <Button onClick={() => handleNavigation("/", scrollToTasksDone)} className={btnStyle} title="Completed Tasks">
                     {isWide ? "Completed Tasks" : <ListChecks />}
                 </Button>
-                <Button className={btnStyle} title="Get Email">
-                    {isWide ? "Get Email" : <Mail />}
-                </Button>
-                <Button onClick={() => handleNavigation("/", scrollToAddTask)} className={btnStyle}>
-                    <Plus />
+                <Button onClick={() => handleNavigation("/", scrollToAddTask)} className={btnStyle} title="Add a Task">
+                {isWide ? "Add Task" : <Plus />}
                 </Button>
             </div>
         </nav>
